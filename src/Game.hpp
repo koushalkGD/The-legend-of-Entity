@@ -17,5 +17,6 @@ private:
 private:
     sf::RenderWindow window;
     sf::Clock clock;
+    sf::View camera;  //CAMERA VIEW
     Player player; // Add a player instance
 };

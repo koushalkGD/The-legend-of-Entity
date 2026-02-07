@@ -8,6 +8,7 @@ public:
 
     void update(float dt);
     void render(sf::RenderWindow& window);
+    sf::Vector2f getPosition() const;
 
 private:
     sf::RectangleShape body;

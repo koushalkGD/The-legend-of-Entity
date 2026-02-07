@@ -12,6 +12,7 @@ Player::Player()
     // Spawn in center
     body.setPosition({400.f, 300.f});
 
+    // Set player speed
     speed = 250.f;
 }
 
@@ -37,10 +38,16 @@ void Player::update(float dt)
     }
 
     body.move(direction * speed * dt);
-    
+
 }
 
 void Player::render(sf::RenderWindow& window)
 {
     window.draw(body);
+}
+
+// Get the player's current position
+sf::Vector2f Player::getPosition() const
+{
+    return body.getPosition();
 }
