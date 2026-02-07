@@ -49,6 +49,7 @@ void Game::render()
 {
     window.clear(sf::Color::Black); // Dark background
     window.setView(camera); // Set the view to the camera
+    world.render(window); // Render the world (tile map)
     player.render(window); // Render the player
     window.display();
 }

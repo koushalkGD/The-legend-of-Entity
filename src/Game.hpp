@@ -2,6 +2,7 @@
 
 #include <SFML/Graphics.hpp>
 #include "Player.hpp"
+#include "TileMap.hpp"   // ✅ REQUIRED
 
 class Game
 {
@@ -17,6 +18,8 @@ private:
 private:
     sf::RenderWindow window;
     sf::Clock clock;
-    sf::View camera;  //CAMERA VIEW
-    Player player; // Add a player instance
+    sf::View camera;
+
+    TileMap world;   // ✅ now compiler knows TileMap
+    Player player;
 };
