@@ -39,7 +39,7 @@ void Game::processEvents()
 void Game::update(float dt)
 {
     // Player logic will go here
-    player.update(dt);
+    player.update(dt, world);
 
     //camera follow player
      camera.setCenter(player.getPosition());

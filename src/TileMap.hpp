@@ -12,9 +12,11 @@ class TileMap
 {
 public:
     TileMap();
-    void render(sf::RenderWindow& window);
+
+    void render(sf::RenderWindow& window) const;
+    bool isSolidAt(sf::Vector2f worldPos) const;
+    static constexpr int TILE_SIZE = 32;
 
 private:
-    static constexpr int TILE_SIZE = 32;
     std::vector<std::vector<TileType>> map;
 };
