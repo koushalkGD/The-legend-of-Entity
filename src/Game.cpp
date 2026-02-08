@@ -1,16 +1,25 @@
 #include "Game.hpp"
 
 Game::Game()
-    : window(
-        sf::VideoMode(sf::Vector2u{800, 600}),
-        "Zelda-like-Game"
-      ),
-      camera(sf::FloatRect(
-        sf::Vector2f{0.f, 0.f},
-        sf::Vector2f{800.f, 600.f}
-        ))
 {
+    // Initialize the window 
+    sf::VideoMode desktop = sf::VideoMode::getDesktopMode();
+
+    window.create(
+        desktop,
+        "Zelda-like-Game",
+        sf::Style::None     // Borderless fullscreen
+      );
+
+    // Set a frame limit to make the game run at a consistent speed
     window.setFramerateLimit(60);
+
+      // Initialize the camera
+    camera = sf::View(
+        sf::FloatRect(
+        {0.f, 0.f},
+        {800.f, 600.f})
+    );
 
     //center the camera arround the player
     camera.setCenter(player.getPosition());
@@ -29,6 +38,16 @@ void Game::run()
 
 void Game::processEvents()
 {
+/*    if(event-> is<sf::Event::Resized>())
+    {
+        // Update the camera's viewport to maintain the aspect ratio
+        sf::Vector2f size{
+            static_cast<float>(event->size.width),
+            static_cast<float>(event->size.height)
+        };
+        camera.setSize(size);
+    }
+*/
     while (auto event = window.pollEvent())
     {
         if (event->is<sf::Event::Closed>())
