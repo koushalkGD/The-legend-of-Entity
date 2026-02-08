@@ -1,7 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-
-class TileMap;
+#include "TileMap.hpp"
 
 class Player
 {
@@ -10,10 +9,16 @@ public:
 
     void update(float dt, const TileMap& world);
     void render(sf::RenderWindow& window) const;
+
     sf::Vector2f getPosition() const;
 
 private:
-    sf::RectangleShape body;
+    sf::FloatRect getHitbox() const;
+
+private:
+    sf::Texture texture;
+    sf::Sprite sprite{texture};
+
     sf::Vector2f velocity;
     float speed;
 };
